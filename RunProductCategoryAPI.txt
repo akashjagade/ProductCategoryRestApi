@@ -1,0 +1,196 @@
+
+Steps to run Product - Category API
+
+
+1. create a new category
+
+Request Method :- Post
+
+Request URL :-	http://localhost:8080/categoryapi/category
+
+{
+    "cid":1,
+    "name":"stationery"
+           
+}
+
+check in the database by executing select * from category
+
+
+repeat same step by providing different JSON Strings like:-
+
+{
+    "cid":2,
+    "name":"foods"
+           
+}
+
+
+{
+    "cid":3,
+    "name":"Electronics"
+           
+}
+
+
+
+2. Get All Categories
+
+
+Request Method :- get
+
+Request URL :- http://localhost:8080/categoryapi/category
+
+
+
+
+3. get Specific Category
+
+
+Request Method :- get
+
+Request URL :- http://localhost:8080/categoryapi/category/1
+
+response should be
+
+{"cid":1,"name":"stationery","products":[],"hibernateLazyInitializer":{}}
+
+
+
+4. update category
+
+ 
+Request Method :- Put
+
+Request URL :-	http://localhost:8080/categoryapi/category
+
+{
+    "cid":2,
+    "name":"food"
+           
+}
+
+check in the database by executing select * from category that foods is changed to food
+
+
+
+
+5. delete category
+
+
+Request Method :- delete
+
+Request URL :- http://localhost:8080/categoryapi/category/3
+
+
+
+
+6. Create new product
+
+
+While adding product , it is needed to pass category id , so that product will be added in that particular category
+
+
+Request Method :- Post
+
+Request URL :- http://localhost:8080/productapi/product/1    ===> here 1 is category id
+
+pass JSON String in request body :-
+
+{
+    "pid":1,
+    "name":"pen",
+    "price":10
+           
+}
+
+observe that this record is added into database table product with cid value 1 . 
+
+
+Repeat above steps with below JSON String :-
+
+{
+    "pid":2,
+    "name":"pencil",
+    "price":5
+           
+}
+
+
+
+
+Request URL :- http://localhost:8080/productapi/product/2    ===> here 2 is category id
+
+{
+    "pid":3,
+    "name":"biscuit",
+    "price":20
+           
+}
+
+
+repeat for :-
+
+{
+    "pid":4,
+    "name":"noodles",
+    "price":30
+           
+}
+
+
+
+
+7. get all products
+
+
+Request Method :- get
+
+Request URL :- http://localhost:8080/productapi/products
+
+
+
+8. get specific product
+
+
+Request Method :- get
+
+Request URL :- http://localhost:8080/productapi/product/1
+
+
+
+9. update specific product
+
+
+Request Method :- put
+
+Request URL :- http://localhost:8080/productapi/product    
+
+pass JSON String in request body to change price of pen to 100 :-
+
+{
+    "pid":1,
+    "name":"pen",
+    "price":100
+           
+}
+
+
+Observe in database that price of pen is changed to 100
+
+
+
+10. delete specific product
+
+Request Method :- delete
+
+Request URL :- http://localhost:8080/productapi/product/1
+
+
+
+
+
+
+
+
+
